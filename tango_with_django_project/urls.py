@@ -15,15 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 from rango import views
-from django.conf.urls import url
-from django.contrib import admin
-from django.conf.urls import include
 
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('rango/', include('rango.urls')),
     path('admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^rango/', include('rango.urls')),
-    url(r'^admin/', admin.site.urls),
 ]
 
