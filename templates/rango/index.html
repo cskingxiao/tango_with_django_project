@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% load staticfiles %} <!-- New line -->
+{% load staticfiles %} 
 
 <html>
     <head>
@@ -12,7 +12,19 @@
 
         <div>
             hey there partner! <br />
-            <strong>{{ boldmessage }}</strong><br />
+            <strong>{{ boldmessage }}</strong>
+        </div>
+
+        <div>
+        {% if categories %}
+             <ul>
+             {% for category in categories %}
+                   <li>{{ category.name }}</li>
+             {% endfor %}
+             </ul>
+       {% else %}
+             <strong>There are no categories present.</strong>
+        {% endif %}
         </div>
 
         <div>
